@@ -3,11 +3,6 @@
     overflow: auto;
 }
 
-input[type=text] {
-    word-wrap: break-word;
-    word-break: break-all;
-}
-
 .snap {
     width: 100%;
     height: 100%;

@@ -12,16 +12,31 @@
 
     <body>
 
-        <!-- webform -->
+        <h1>Henry Font to UTF-8 Converter</h1>
 
-        <form>
+        <h3>Input:</h3>
 
-            <textarea id="text-input" name="text-input" placeholder="Input text to convert..."></textarea>
+        <form method="post" action="index.php">
+
+            <select name="menu">
+                <option value="h-to-u" selected>Henry -> UTF-8</option>
+                <option value="u-to-h">UTF-8 -> Henry</option>
+            </select>
+
+            <br>
+
+            <textarea id="text-input" name="text-input" placeholder="Type text to convert..." cols="50" rows="10"></textarea>
+
+            <br>
+
+            <input type="submit" value="Convert!">
+
+            <h3>Output:</h3>
 
         </form>
 
         <?php
-            //THIS SECTION CREATES THE CYPHER
+            //THIS SECTION CREATES THE CYPHER DON'T TOUCH IT :)
 
             $cypher_filename = "cypher.txt";
             $cypher_file = file_get_contents($cypher_filename);
@@ -57,9 +72,19 @@
 
         <?php
 
-            $bad_str = file_get_contents("example.txt");  
+            if(isset($_POST) && array_key_exists("menu", $_POST) && $_POST["text-input"] != "") {
+                if($_POST["menu"] == "h-to-u") {
+                    echo decode_str($_POST["text-input"], $to_utf_cypher);
+                } else if($_POST["menu"] == "u-to-h") {
+                    echo decode_str($_POST["text-input"], $to_henry_cypher);
+                }
+            } else {
+                echo "<em>Your output will show up here.</em>";
+            }
 
-            echo (decode_str($bad_str, $to_utf_cypher));
+            //$bad_str = file_get_contents("example.txt");  
+
+            //echo (decode_str($bad_str, $to_utf_cypher));
 
             //convert function
             function decode_str($input_str, $cypher) {
