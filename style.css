@@ -1,9 +1,36 @@
-.resizable {
-    resize: both;
-    overflow: auto;
+body {
+    margin: 0px 30px 0px 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .snap {
     width: 100%;
     height: 100%;
+}
+
+#page {
+    border: 1px solid black;
+    padding: 10px 10px 10px 10px;
+}
+
+nav a {
+    padding: 0px 5px 0px 5px;
+    border: 1px solid black;
+    border-bottom-style: none;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#active-page {
+    border: 1px solid black;
+    border-bottom-style: none;
+    background-color: lightgray;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+div {
+    border-radius: 0px 5px 5px 5px;
 }
